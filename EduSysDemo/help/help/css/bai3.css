@@ -1,0 +1,56 @@
+
+select option{
+    text-align: center;
+}
+.title {
+    text-align: center;
+}
+.title h3{
+    font-size: 18pt;
+    color: red;
+}
+.cuahang{
+    margin-left: 385px;
+}
+#table{
+    margin-bottom: 20px;
+    display: none;
+}
+#table table{
+    text-align: center;
+}
+#table1{
+    display: none;
+}
+#table1 table{
+    text-align: center;
+}
+h4{
+    color: red;
+}
+table{
+    border-color: gray;
+    text-align: center;
+}
+tr:last-child{
+    color: red;
+    font-weight: bold;
+}
+tr:nth-child(1){
+    background-color: yellow;
+}
+td:nth-child(2){
+    width: 200px;
+}
+td:nth-child(3){
+    width: 100px;
+}
+td:nth-child(4){
+    width: 200px;
+}
+.dtu input{
+    width: 100%;
+}
+td{
+    padding: 3px;
+}

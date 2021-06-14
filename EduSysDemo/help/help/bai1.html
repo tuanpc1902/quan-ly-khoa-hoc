@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bai1.css">
+    <script>
+        var images = [];
+        var count = 0;
+        function loadAnh(){
+        for (var i = 0; i < 6; i++) {
+            images[i] = new Image();
+            images[i].src = "images/anh" + i + ".jpg";
+        }
+        }
+        function next(){
+            count++;
+            if(count > 4 ){
+                count = 0;
+            }
+            document.getElementById("anh").src=images[count].src;
+            document.getElementById("anh").innerHTML= images[count].innerHTML;
+        }
+
+        function prev(){
+            count--;
+            if(count < 0){
+                count = 4;
+            }
+            document.getElementById("anh").src=images[count].src;
+        }
+        setInterval(function(){
+            next();
+        },5000);
+    </script>
+</head>
+<body onload="loadAnh();">
+    <div class="container">
+    <div class="index-anh">
+    <img id="anh" src="images/anh0.JPG" />
+    </div>
+<div class="prev">
+    <a onclick="prev();">&#10094;</a>
+</div>
+<div class="next">
+    <a onclick="next();">&#10095;</a>
+</div>
+    <div style="text-align:center">
+    </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+    <link rel="stylesheet" href="css/bai2.css">
+    <script src="js/bai2.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/jquery-1.6.4.min.js"></script>
+</head>
+<body onsubmit="return getInfo();" ng-app="" onload="displaythongtin();">
+    <div class="tong">
+    <h3>Đăng Ký Thành Viên</h3>
+    <form name="frm" method="POST" action="" style="width: 60%; float: left;">
+        <label for="masinhvien">Mã sinh viên</label>
+        <br>
+            <input type="text" id="masinhvien" ng-model="masinhvien">
+        <span id="erroname" class="erro"></span>
+        <br>
+        <label for="hoten">Họ và tên</label>
+        <br>
+            <input type="text" id="hoten" ng-model="hoten">
+        <span id="errohoten" class="erro"></span>
+        <br>
+        <label for="email">Email</label>
+        <br>
+            <input type="text" id="email" onblur="checkEmail()" ng-model="email">
+        <span id="erroemail" class="erro"></span>
+        <span id="erroemail1" class="erro"></span>
+        <br>
+        <label for="gioitinh">Giới tính:</label>
+        <label for="Nam">
+            <input type="radio" name="gioitinh" id="Nam" onclick="thongtin();"> Nam
+        </label>
+        <label for="Nu">
+            <input type="radio" name="gioitinh" id="Nu" onclick="thongtin();"> Nữ
+        </label>
+        <span id="errogioitinh" class="erro"></span>
+        <br>
+        <div id="sothich1"  onclick="thongtin();">
+        <label for="">Sở thích</label>
+        <label for="docsach">
+            <input type="checkbox" name="sothich" value="Đọc sách" id="docsach" onclick="return checksothich();">Đọc sách
+        </label>
+        <label for="dulich">
+            <input type="checkbox" name="sothich" value="Du lịch" id="dulich" onclick="return checksothich();">Du lịch
+        </label>
+        <label for="amnhac">
+            <input type="checkbox" name="sothich" value="Âm nhạc" id="amnhac" onclick="return checksothich();">Âm nhạc
+        </label>
+        <label for="amthuc">
+            <input type="checkbox" name="sothich" value="Ẩm thực" id="amthuc" onclick="return checksothich();">Ẩm thực
+        </label>
+        <label for="khac1">
+            <input type="checkbox" name="sothich" value="" id="khac1" onclick="return checksothich();">Khác
+        </label>
+        <span id="errosothich" class="erro"></span>
+        <p id="khac" style="display:none">
+            <input value="Nhập sở thích của bạn tại đây !"/>
+        </p>
+        <span id="errokhac" class="erro"></span>
+        </div>
+        <br>
+        <label for="">Quốc tịch</label>
+        <br>
+        <label for="">
+            <select name="" id="list" onclick="thongtin();">
+                <option value="option" id="option">Chọn quốc tịch</option>
+                <option value="Việt Nam" id="vietnam">Việt Nam</option>
+                <option value="Hoa Kỳ" id="hoaky">Hoa Kỳ</option>
+                <option value="Anh" id="anh">Anh</option>
+            </select>
+            <span id="erroquoctich" class="erro"></span>
+        </label>
+        <br><br>
+        <label for="ghichu">Ghi chú</label>
+        <br>
+            <textarea name="comment" class="main_txt_area" onkeyup="return demkytu();" id="ghichu" cols="30" rows="10" ng-model="ghichu"></textarea>
+        <div class="total_count">Nội dung ghi chú giới hạn 
+            <input class="show_count" name="gioihantu" size="4" readonly="" value="200" type="text">
+        </div>
+        <br>
+        <button type="submit" onclick="getInfo(); checksothich(); checkEmail(); return false" >Đăng Ký</button>
+    </form>
+    <div id="masv" class="thongtin">
+        <h3>THÔNG TIN CỦA BẠN</h3>
+        <p>Mã số sinh viên: <div class="xuatthongtin">{{masinhvien}}</div></p>
+        <p>Họ và tên: <div class="xuatthongtin">{{hoten}}</div></p>
+        <p>Email: <div class="xuatthongtin">{{email}}</div></p>
+        <p>Giới tính: <div class="xuatthongtin" onload="thongtin();"><span id="xuatgioitinh"></span></div></p>
+        <p>Sở thích: <div  class="xuatthongtin" onload="thongtin();"><span id="xuatsothich"></span></div></p>
+        <p>Quốc tịch: <div class="xuatthongtin" onload="thongtin()"><span id="xuatquoctich"></span></div></p>
+        <p>Ghi chú: <div class="xuatthongtin">{{ghichu}}</div></p>
+    </div>
+    </div>
+</body>
+</html>

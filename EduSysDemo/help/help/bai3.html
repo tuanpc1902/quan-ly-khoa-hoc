@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bán Hàng</title>
+    <link rel="stylesheet" href="css/bai3.css">    
+    <script src="js/jquery-1.6.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="js/bai3.js"></script>
+</head>
+    <body ng-app="myApp" ng-controller="myCtrl" ng-init="checkbox()" >
+    <div class="title">
+    <h3>BÁN HÀNG ONLINE</h3>
+    <p>Chọn mức giá</p>
+    <input type="checkbox" name="" id="check2" ng-click="hienthi1();"><label for="check2">Dưới 3.5 triệu </label>
+    <select name="" id="myselect" ng-model="mySelect" ng-change="myFunction()">
+        <option value="">Chọn Mức giá</option>
+        <option value="1" id="giare" onclick="hienthi1();">0đ --> 3.499.000đ</option>
+        <option value="2" id="giacao">3.500.000đ --></option>
+    </select>
+    </select>
+    <input type="checkbox" name="" id="check1" ng-click="hienthi()"><label for="check1"> Từ 3.5 triệu</label>
+    </div>
+    <hr>
+    
+    <div class="cuahang">
+    <div id="table1">
+        <h4>Sản Phẩm Giá Rẻ</h4>
+    <table border="1">
+        <tr>
+            <th><input type="checkbox" name="" id="allsanpham" ng-click="checkall()"></th>
+            <th>Hàng Hóa</th>
+            <th>Đơn Giá</th>
+            <th>Số Lượng</th>
+            <th>Thành Tiền</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="nokia" name="sanpham" ng-click="checkbox()"></td>
+            <td>Nokia</td>
+            <td ng-init="nokia = 1290000">1.290.000đ</td>
+            <td><input type="number" class="dtu" min="0" name="soluong" id="inputNokia" ng-model="soluong5" ng-init="soluong5=''" disabled></td>
+            <td>{{nokia*soluong5}}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="motorola" name="sanpham" ng-click="checkbox();"></td>
+            <td>Motorola</td>
+            <td ng-init="motorola = 1800000">1.800.000đ</td>
+            <td><input type="number" class="dtu" min="0" name="soluong" id="inputMotorola" ng-model="soluong6" ng-init="soluong6=''" disabled></td>
+            <td>{{motorola*soluong6}}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="bphone" name="sanpham" ng-click="checkbox();"></td>
+            <td>B Phone</td>
+            <td ng-init="bphone = 1900000">1.900.000đ</td>
+            <td><input type="number" class="dtu" min="0" name="soluong" id="inputBphone" ng-model="soluong7" ng-init="soluong7=''" disabled></td>
+            <td>{{bphone*soluong7}}</td>
+        </tr>
+
+
+        <tr>
+            <td><input type="checkbox" id="realme" name="sanpham" ng-click="checkbox()"></td>
+            <td>Realme</td>
+            <td ng-init="realme = 2490000">2.490.000đ</td>
+            <td><input type="number" class="dtu" min="0" name="soluong" id="inputRealme" ng-model="soluong8" ng-init="soluong8=''" disabled></td>
+            <td>{{realme*soluong8}}</td>
+        </tr>
+
+
+        <tr>
+            <th colspan="4">TỔNG</th>
+            <th>{{(nokia*soluong5)+(motorola*soluong6)+(bphone*soluong7)+(realme*soluong8)}}</th>
+        </tr>
+    </table>
+    </div>
+    <div  id="table">
+        <h4>Sản Phẩm Tầm Trung</h4>
+    <table border="1">
+        <tr>
+            <th><input type="checkbox" name="" id="allsanpham1" ng-click="checkall1()"></th>
+            <th>Hàng Hóa</th>
+            <th>Đơn Giá</th>
+            <th>Số Lượng</th>
+            <th>Thành Tiền</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="iphone" name="sanpham" ng-click="checkbox();" value="1"></td>
+            <td>iPhone 9</td>
+            <td ng-init="iphone = 8590000">8.590.000đ</td>
+            <td><input type="number" class="dtu" min="0" name="soluong" id="inputIphone" disabled ng-model="soluong1" ng-init="soluong1=''"></td>
+            <td id="ip">{{soluong1*iphone}}</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="samsung" name="sanpham" ng-click="checkbox();" value="2"></td>
+            <td>Sansung</td>
+            <td ng-init="samsung = 4000000">4.000.000đ</td>
+            <td><input type="number" class="dtu" min="0" name="soluong" id="inputSamsung" disabled ng-model="soluong2" ng-init="soluong2=''"></td>
+            <td id="ss">{{samsung*soluong2}}</td>
+        </tr>
+        <tr id="option">
+            <td><input type="checkbox" id="sony" name="sanpham" ng-click="checkbox();" value="3"></td>
+            <td>Sony Xperia</td>
+            <td ng-init="sony = 4500000">4.500.000đ</td>
+            <td><input type="number" class="dtu" min="0" name="soluong" id="inputSony" ng-model="soluong3" ng-init="soluong3=''" disabled></td>
+            <td id="sn">{{sony*soluong3}}</td>
+        </tr>
+        
+        <tr>
+            <td><input type="checkbox" id="oppo" name="sanpham" ng-click="checkbox();" value="4"></td>
+            <td>Oppo</td>
+            <td ng-init="oppo = 3600000">3.600.000đ</td>
+            <td><input type="number" class="dtu" min="0" name="soluong" id="inputOppo" ng-model="soluong4" ng-init="soluong4=''" disabled></td>
+            <td id="op">{{oppo*soluong4}}</td>
+        </tr>
+        <tr>
+            <th colspan="4">TỔNG</th>
+            <th>{{(iphone*soluong1)+(samsung*soluong2)+(sony*soluong3)+(oppo*soluong4)}}</th>
+        </tr>
+    </table>
+    </div>
+    </div>
+</body>
+</html>
